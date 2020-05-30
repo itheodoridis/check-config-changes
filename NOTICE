@@ -1,0 +1,3 @@
+check-config-changes
+Copyright (c) 2020 Ioannis Theodoridis
+This project includes software developped by Ioannis Theodoridis, and is about creating a Nagios plugin can get the config of a network device and check it for differences against a 'golden config image'. The code uses Cisco PyATS to connect to the device and check for differences.
