@@ -9,9 +9,8 @@ The plugin structure is borrowed (although a little modified) from the check_cis
 PRIOR TO USE:
 You need to have a 'testbeds' directory and a 'configs' directory under the one where you run the plugin (usually it's /usr/local/nagios/libexec). If any of them or both do not exist, the plugin will exit. Make sure the directories are there and readable, that the 'testbeds' dir contains the necessary testbeds and that the hostname you are interested in is correct and exists in the testbed. No exceptions are defined in the code to handle that.
 In order for the plugin to be used a golden config file is necessary.
-You can do this using the script create-golden-config.py in the same repository.
-Or you can run the plugin and it will give a WARNING status and a warning message the first time, but will query the device for the config and save it as a golden config.
-You can then use the create-golden-config.py script to rearm the check, or delete the current golden config.
+You can run the plugin to do this and it will give a WARNING status and a warning message the first time, but will query the device for the config and save it as a golden config.
+You can then delete the current golden config to rearm the check.
 
 POSSIBLE RESULTS:
 If the current config found to be the same as the golden config, an OK status is returned
