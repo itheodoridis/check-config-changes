@@ -141,11 +141,11 @@ class ConfigChecker:
                 f.write(output)
             self.status = self.STATUS_WARNING
             self.set_message("Golden Config did not exist. Created for : {}".format(self.options.hostname))
-
-        with open(golden_config_filename, 'r') as f:
+        else:
+            with open(golden_config_filename, 'r') as f:
                 output=f.read()
-        self.golden_config=Config(output)
-        self.golden_config.tree()
+            self.golden_config=Config(output)
+            self.golden_config.tree()
 
         return()
 
