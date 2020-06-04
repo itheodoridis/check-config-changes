@@ -18,6 +18,10 @@ If you need to create testbeds, you can check how to do that with various ways i
 https://pubhub.devnetcloud.com/media/genie-docs/docs/cli/genie_create.html#cli-create-testbed
 or if you have a Prime Infrastructure installation, use the code created here:
 https://github.com/itheodoridis/itheodoridis-createtestbedsfromPI
+In order to help with the understanding of the project, I have uploaded a sample testbed for you to modify and use in your infrastructure. It's in the testbeds directory. 
+If you want you can modify this to play with the always on CSR-1k sandbox on the Devnet Sandbox environment.
+Networking Sandboxes Overview - https://developer.cisco.com/docs/sandbox/#!networking/networking-overview
+IOS-XE on CSR Latest Code - Always on Sandbox - https://devnetsandbox.cisco.com/RM/Diagram/Index/38ded1f0-16ce-43f2-8df5-43a40ebf752e?diagramType=Topology - Check instructions for related resources and other links. You need a CCO Login for that of course.
 
 
 # Possible results
