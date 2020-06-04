@@ -48,13 +48,13 @@ If you want to use the container approach:
 - Create a cases directory and a build directory under /opt/pyats
 - Copy the script in the cases directory.
 - Copy the contents of this repo build directory under /opt/pyats/build
-- Create a testbeds directory and a configs directory under /opt/pyats/cases
-- Put your testbed in /opt/pyats/testbed . Use the provided testbed as an example or take a look at the documentation links I provided to make our own.
+- Create a testbeds directory and a configs directory under /opt/pyats/cases. Be carefull with rights, although I am sure the container will not have any problems as it mounts files as root.
+- Put your testbed in /opt/pyats/cases/testbeds . Use the provided testbed as an example or take a look at the documentation links I provided to make our own.
 - go in /opt/pyats/build and run <code>docker-compose run --rm pyats</code> to build your own image. It will also start the container interactively - that's default behavior. Either run something first or just exit it. The container will be destroyed but the image will remain in your system.
 - you can now run the plugin using this command line: <code>docker-compose -f config-check.yml run --rm pyats python3 /pyats/cases/check-config-changes.py -H nexus1 -t nxos.yaml</code> (or use your own defined hostnames in your own testbed file). That will start the container with the modified entry point (it's loaded in the container at start instead of the original docker-entrypoint.sh that is copied in during the image creation process. Echo commands in the modified entrypoint.sh (cases-entrypoint.sh) have been commented out so as not to mess with plugin output for the Nagios Server.
 - to get the results to the Nagios Server either you need to install Nagios on the docker host, or install NRPE on the docker host and call the plugin remotely (that takes some config) or use another container for Nagios and build another nice container group with a nicely organized docker-compose (no way I am documenting that, it's possible through, take a look here: https://github.com/JasonRivers/Docker-Nagios )
 
-# Running the plugin
+# Running just the plugin
 Running Nagios plugins inside a Nagios Core configuration requires some knowledge. I will not get into that here. However you can also run the plugin in command-line, like this:
 <code>python3 check-config-changes.py -H hostname -t testbed</code>
 where hostname is the test definining the name of your host in the testbed and testbed is the testbed filename (*.yaml) in the testbeds directory.
