@@ -39,8 +39,20 @@ This was created using the standard PyATS docker container. For a full standard 
 - Install Docker if you don't have it on your system (for example ubuntu 18.04 instructions here https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04 by Brian Hogan) and then run PyATS using their instructions here https://pubhub.devnetcloud.com/media/pyats-getting-started/docs/install/installpyATS.html#using-docker (that's almost what I did and it will work)
 - If you already know a thing or two about docker, docker images, dockerfile and docker-compose, you can copy the files from here https://github.com/CiscoTestAutomation/pyats-docker and edit your own dockerfile and run the container by this command. I have included a build directory where you can keep those and run from there. You don't need to do that but it feels nice to have some control over the environment. For example I added vim in my own environment inside the container, which you don't really need to run this plugin.
 
-To install just clone this repository and use the scripts but remember to create the testbeds and configs directories and configure their access rights approprietly. Or simply copy the script contents in your own python scripts.
+To install just clone this repository and use the script but remember to create the testbeds and configs directories and configure their access rights approprietly. Or simply copy the script contents in your own python scripts.
 Remember that you need to have testbed files (*.yaml) in your testbeds directory. You must also know the hostname of the host you want to check before hand so make sure it is defined in your testbed.
+
+If you want to use the container approach:
+- Install Docker using the guide I provide as a link for ubuntu, or find your own for your linux system
+- Create an /opt/pyats directory in your docker host (where you installed Docker). 
+- Create a cases directory and a build directory under /opt/pyats
+- Copy the script in the cases directory.
+- Copy the contents of this repo build directory under /opt/pyats/build
+- Create a testbeds directory and a configs directory under /opt/pyats/cases
+- Put your testbed in /opt/pyats/testbed . Use the provided testbed as an example or take a look at the documentation links I provided to make our own.
+- go in /opt/pyats/build and run <code>docker-compose run --rm pyats</code> to build your own image. It will also start the container interactively - that's default behavior. Either run something first or just exit it. The container will be destroyed but the image will remain in your system.
+- you can now run the plugin using this command line: <code>docker-compose -f config-check.yml run --rm pyats python3 /pyats/cases/check-config-changes.py -H nexus1 -t nxos.yaml</code> (or use your own defined hostnames in your own testbed file). That will start the container with the modified entry point (it's loaded in the container at start instead of the original docker-entrypoint.sh that is copied in during the image creation process. Echo commands in the modified entrypoint.sh (cases-entrypoint.sh) have been commented out so as not to mess with plugin output for the Nagios Server.
+- to get the results to the Nagios Server either you need to install Nagios on the docker host, or install NRPE on the docker host and call the plugin remotely (that takes some config) or use another container for Nagios and build another nice container group with a nicely organized docker-compose (no way I am documenting that, it's possible through, take a look here: https://github.com/JasonRivers/Docker-Nagios )
 
 # Running the plugin
 Running Nagios plugins inside a Nagios Core configuration requires some knowledge. I will not get into that here. However you can also run the plugin in command-line, like this:
