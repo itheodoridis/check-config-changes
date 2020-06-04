@@ -10,9 +10,8 @@ The plugin structure is borrowed (although a little modified) from the check_cis
 You need to have a 'testbeds' directory and a 'configs' directory under the one where you run the plugin (usually it's /usr/local/nagios/libexec). If any of them or both do not exist, the plugin will exit. Make sure the directories are there and readable, that the 'testbeds' dir contains the necessary testbeds and that the hostname you are interested in is correct and exists in the testbed. No exceptions are defined in the code to handle that.
 ## Golden Config - WARNING status
 In order for the plugin to be used a golden config file is necessary for the host you want to check.
-You can do this using the script create-golden-config.py in the same repository.
-Or you can run the plugin and it will give a WARNING status and a warning message the first time, but will query the device for the config and save it as a golden config.
-You can then use the create-golden-config.py script to rearm the check, or delete the current golden config.
+To do this simply run the plugin for that host and the relative testbed and it will give a WARNING status and a warning message the first time, but will query the device for the config and save it as a golden config.
+You can then delete the current golden config to rearm the check.
 ## Create testbeds
 If you need to create testbeds, you can check how to do that with various ways in the Cisco PyATS documentation here:
 https://pubhub.devnetcloud.com/media/genie-docs/docs/cli/genie_create.html#cli-create-testbed
