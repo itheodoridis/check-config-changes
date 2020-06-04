@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  pyats:
+    image: pyatsvim:latest
+    container_name: pyats
+    build: .
+    volumes:
+      - /opt/pyats/cases:/pyats/cases
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+      - ./cases-entrypoint.sh:/entrypoint.sh
+
+    command: bash
