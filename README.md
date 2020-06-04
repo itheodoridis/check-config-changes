@@ -46,7 +46,7 @@ If you want to use the container approach:
 - Create an /opt/pyats directory in your docker host (where you installed Docker). 
 - Create a cases directory and a build directory under /opt/pyats
 - Copy the script in the cases directory.
-- Copy the contents of this repo build directory under /opt/pyats/build
+- Copy the contents of this repo build directory (they are modified copies of the original files from the pyats docker github repo) under /opt/pyats/build
 - Create a testbeds directory and a configs directory under /opt/pyats/cases. Be carefull with rights, although I am sure the container will not have any problems as it mounts files as root.
 - Put your testbed in /opt/pyats/cases/testbeds . Use the provided testbed as an example or take a look at the documentation links I provided to make our own.
 - go in /opt/pyats/build and run <code>docker-compose run --rm pyats</code> to build your own image. It will also start the container interactively - that's default behavior. Either run something first or just exit it. The container will be destroyed but the image will remain in your system.
