@@ -1,0 +1,45 @@
+# Example Testbed for Nexus.
+# -------
+#
+#   an example testbed file - nxos_testbed.yaml
+#   Don't forget the golden rule: the device names need to be the same as the hostnames you get when you login.
+#   If you defined the credentials for every device, the first block about the testbed is not necessary.
+testbed:
+
+  name: nexustestbed
+  alias: dcnx
+
+  credentials:
+    default:
+      username: nexususer
+      password: nexuspassword
+    enable:
+      password: enablepassword
+
+devices:
+
+  nexus1:
+    alias: dcnx1core
+    os: nxos
+    type: Nexus 7710
+
+    connections:
+      defaults:
+        class: unicon.Unicon
+      console:
+        ip: 10.1.1.11
+        protocol: ssh
+        port: 22
+
+  nexus2:
+    alias: dcnx2core
+    os: nxos
+    type: Nexus 7710
+
+    connections:
+      defaults:
+        class: unicon.Unicon
+      console:
+        ip: 10.1.1.12
+        protocol: ssh
+        port: 22
