@@ -42,7 +42,7 @@ To install just clone this repository and use the script but remember to create 
 Remember that you need to have testbed files (*.yaml) in your testbeds directory. You must also know the hostname of the host you want to check before hand so make sure it is defined in your testbed.
 
 If you want to use the container approach:
-- Install Docker using the guide I provide as a link for ubuntu, or find your own for your linux system
+- Install Docker using the guide I provide as a link for ubuntu, or find your own for your linux system (don't forget to install docker-compose in that case, it's a separate package).
 - Create an /opt/pyats directory in your docker host (where you installed Docker). 
 - Create a cases directory and a build directory under /opt/pyats
 - Copy the script in the cases directory.
