@@ -1,6 +1,6 @@
 # check-config-changes
 # Description
-This Nagios plugin can get the config of a network device and check it for differences against a 'golden config image'.
+This Nagios plugin can get the config of a network device and check it for differences against a 'golden config image'. There is a 1-1 relationship betweeen the hostname and the golden config name that is produced and used for comparison.
 The code uses Cisco PyATS to connect to the device and check for differences. The idea behind the plugin was to find a way to change the network state in a status variable (more about this in the Additional Notes section).
 We once faced a nasty bug during an upgrade where the running config would dissappear from the switch being upgraded but the data remained in memory. So if we hadn't noticed, saved config and rebooted, we would have a disaster in our hands. It was then that I got the idea for this plugin, so my workmate and myself got it working.
 
