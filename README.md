@@ -2,6 +2,7 @@
 # Description
 This Nagios plugin can get the config of a network device and check it for differences against a 'golden config image'.
 The code uses Cisco PyATS to connect to the device and check for differences. The idea behind the plugin was to find a way to change the network state in a status variable (more about this in the Additional Notes section).
+We once faced a nasty bug during an upgrade where the running config would dissappear from the switch being upgraded but the data remained in memory. So if we hadn't noticed, saved config and rebooted, we would have a disaster in our hands. It was then that I got the idea for this plugin, so my workmate and myself got it working.
 
 <img src="nagios-pyats.jpg" raw=true alt="Nagios Core - PyATS Diagram">
 
