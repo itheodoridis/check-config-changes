@@ -8,7 +8,8 @@ We once faced a nasty bug during an upgrade where the running config would dissa
 
 # CREDITS:
 The python code to create golden config image and check for differences was created with Katerina Dardoufa (https://github.com/kdardoufa), Cisco PyATS team was consulted, thank you guys for your support!
-The plugin structure is borrowed (although a little modified) from the check_cisco_ip_sla plugin by Maarten Hoogveld, maarten@hoogveld.org. I would have probably created something myself as it's not the first Nagios plugin I create but his work saved me some time, especially for arg parse.
+The plugin structure is borrowed (although a little modified) from the check_cisco_ip_sla plugin by Maarten Hoogveld, maarten@hoogveld.org. This is his github for it https://github.com/mhoogveld/check_cisco_ip_sla . 
+<br>I would have probably created something myself as it's not the first Nagios plugin I create but his work saved me some time, especially for arg parse.
 # Prior to use
 ## Testbeds and configs directories
 You need to have a 'testbeds' directory and a 'configs' directory under the one where you run the plugin (usually it's /usr/local/nagios/libexec). If any of them or both do not exist, the plugin will exit. Make sure the directories are there and readable, that the 'testbeds' dir contains the necessary testbeds and that the hostname you are interested in is correct and exists in the testbed. No exceptions are defined in the code to handle that.
